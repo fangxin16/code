@@ -16,7 +16,7 @@ for folder in os.listdir(base):
 
     # 拿到这个文件夹里的所有文件，按名字排好队
     文件列表 = sorted(os.listdir(文件夹路径))
-    编号 = 1
+    编号 = 0
 
     for 文件名 in 文件列表:
         后缀 = os.path.splitext(文件名)[1].lower()
@@ -26,7 +26,7 @@ for folder in os.listdir(base):
             continue
 
         旧路径 = os.path.join(文件夹路径, 文件名)
-        新文件名 = folder + "-" + str(编号) + 后缀
+        新文件名 = folder + "-" + str(编号).zfill(2) + 后缀
         新路径 = os.path.join(文件夹路径, 新文件名)
 
         os.rename(旧路径, 新路径)
